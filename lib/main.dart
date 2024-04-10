@@ -1,4 +1,6 @@
+import 'package:delivery/customwidgets/bottomnavigation.dart';
 import 'package:delivery/presentation/splashscreen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,3 +1,4 @@
+import 'package:delivery/customwidgets/bottomnavigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,7 +90,13 @@ class _SplashScreenState extends State<SplashScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                     color: Color(0xff0BCE83),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BottomNavigation()),
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(top: 16, bottom: 16),
                       child: Text(
@@ -113,7 +120,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
                           color: Color(0xff9586A8)),
-                    ))
+                    )),
               ],
             ),
           ),
