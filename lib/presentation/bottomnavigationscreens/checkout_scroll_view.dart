@@ -1,4 +1,7 @@
+import 'package:delivery/customwidgets/deliveryoption.dart';
+import 'package:delivery/presentation/payment.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CheckoutScrollView extends StatefulWidget {
@@ -47,7 +50,12 @@ class _CheckoutScrollViewState extends State<CheckoutScrollView> {
                 ),
                 Spacer(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Payment()),
+                    );
+                  },
                   child: Text(
                     "CHANGE",
                     style: TextStyle(
@@ -154,95 +162,32 @@ class _CheckoutScrollViewState extends State<CheckoutScrollView> {
             SizedBox(
               height: 30,
             ),
-            Column(
+            DeliveryOptions(),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
               children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      "images/walking.png",
-                      height: 25,
-                    ),
-                    SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "I’ll pick it up myself",
-                      style: GoogleFonts.sora(
-                          color: Color(0xff9586A8),
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400),
-                    )
-                  ],
+                Text(
+                  "Non-contact-delivery",
+                  style: GoogleFonts.sora(
+                      color: Color(0xff2D0C57),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
-                  height: 24,
-                ),
-                Row(
-                  children: [
-                    Image.asset(
-                      "images/bike.png",
-                      height: 25,
-                    ),
-                    SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "By courier",
-                      style: GoogleFonts.sora(
-                          color: Color(0xff9586A8),
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                Row(
-                  children: [
-                    Image.asset(
-                      "images/Drone.png",
-                      height: 25,
-                    ),
-                    SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "By Drone",
-                      style: GoogleFonts.sora(
-                          color: Color(0xff9586A8),
-                          fontSize: 17,
-                          fontWeight: FontWeight.w400),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Non-contact-delivery",
-                      style: GoogleFonts.sora(
-                          color: Color(0xff2D0C57),
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Spacer(),
-                    Switch(
-                      activeColor: Colors.white,
-                      activeTrackColor: Color(0xffE2CBFF),
-                      value: isNonContactDelivery,
-                      onChanged: (value) {
-                        setState(() {
-                          isNonContactDelivery = value;
-                        });
-                      },
-                    )
-                  ],
-                ),
+                Spacer(),
+                Switch(
+                  activeColor: Colors.white,
+                  activeTrackColor: Color(0xffE2CBFF),
+                  value: isNonContactDelivery,
+                  onChanged: (value) {
+                    setState(() {
+                      isNonContactDelivery = value;
+                    });
+                  },
+                )
               ],
-            )
+            ),
           ],
         ),
       ),
