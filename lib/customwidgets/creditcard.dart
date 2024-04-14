@@ -4,7 +4,16 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CreditCard extends StatelessWidget {
-  const CreditCard({super.key});
+  final String cardNumber;
+  final String lastcardNumber;
+  final String cardHolderName;
+  final String expiryDate;
+  const CreditCard(
+      {super.key,
+      required this.cardNumber,
+      required this.cardHolderName,
+      required this.expiryDate,
+      required this.lastcardNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +37,26 @@ class CreditCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 80),
           child: Center(
             child: Text(
-              "4747  4747  4747  \n          4747",
+              cardNumber,
               style: GoogleFonts.sora(
-                  letterSpacing: 2,
+                  letterSpacing: 2.5,
                   decoration: TextDecoration.none,
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w100),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 105),
+          child: Center(
+            child: Text(
+              lastcardNumber,
+              style: GoogleFonts.sora(
+                  letterSpacing: 2.5,
+                  decoration: TextDecoration.none,
+                  color: Colors.white,
+                  fontSize: 26,
                   fontWeight: FontWeight.w100),
             ),
           ),
@@ -44,7 +67,7 @@ class CreditCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "ALEXANDRA SMITH",
+                cardHolderName,
                 style: GoogleFonts.sora(
                     decoration: TextDecoration.none,
                     fontSize: 20,
@@ -53,7 +76,7 @@ class CreditCard extends StatelessWidget {
                     color: Colors.white),
               ),
               Text(
-                "07/21",
+                expiryDate,
                 style: GoogleFonts.sora(
                     decoration: TextDecoration.none,
                     fontSize: 20,
